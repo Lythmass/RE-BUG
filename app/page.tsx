@@ -1,9 +1,17 @@
+import { AuthInput, AuthTitle } from 'components';
+
 export default function Home() {
   return (
-    <main className='w-full h-full flex flex-col items-center py-10'>
-      <h1 className='uppercase text-4xl font-bold text-light'>
-        Login to <span className='text-accent-1'>Re-bug</span>
-      </h1>
-    </main>
+    <form className='w-full h-full flex flex-col items-center p-10 gap-10'>
+      <AuthTitle text='Login to' />
+      <div className='w-full flex flex-col gap-5'>
+        <AuthInput type='text' name='username' placeholder='Enter Username' />
+        <AuthInput
+          type='password'
+          name='password'
+          placeholder='Enter Password'
+        />
+      </div>
+    </form>
   );
 }
