@@ -1,6 +1,6 @@
 export const AuthLayout: React.FC<{ children: React.ReactNode }> = (props) => {
   return (
-    <div className='border backdrop-brightness-50 border-light w-[40%] rounded-xl shadow-2xl'>
+    <div className='border backdrop-brightness-50 border-light w-[30rem] rounded-xl shadow-2xl'>
       {props.children}
     </div>
   );
