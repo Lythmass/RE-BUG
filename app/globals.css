@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --dark: #252A34;
+  --light: #EAEAEA;
+  --accent-1: #FF2E63;
+  --accent-2: #08D9D6;
+}
+
+body {
+  background-image: linear-gradient(#ffffff05 2px, transparent 2px), linear-gradient(to right, #ffffff05 2px, transparent 2px);
+  background-size: 4rem 4rem;
+  background-color: var(--dark);
+}
