@@ -13,7 +13,7 @@ export const AuthInput: React.FC<AuthInputType> = (props) => {
         {...props.register(props.name, validation[props.name])}
       />
       <p
-        className={`text-accent-1 text-sm leading-4 h-2 ${raleway.className} px-7 break-words`}
+        className={`text-accent-1 text-sm leading-4 lg:h-2 ${raleway.className} px-7 break-words`}
       >
         {props.errors[props.name]?.message}
       </p>

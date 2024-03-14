@@ -1,1 +1,6 @@
-export { AuthLayout, AuthInput, AuthTitle } from './GlobalComponents';
+export {
+  AuthLayout,
+  AuthInput,
+  AuthTitle,
+  AuthButton,
+} from './GlobalComponents';

@@ -1,5 +1,5 @@
 'use client';
-import { AuthInput, AuthTitle } from 'components';
+import { AuthButton, AuthInput, AuthTitle } from 'components';
 import { useForm } from 'react-hook-form';
 
 export default function Home() {
@@ -30,6 +30,7 @@ export default function Home() {
           placeholder='Enter Password'
           errors={methods.formState.errors}
         />
+        <AuthButton text='Login' />
       </form>
     </div>
   );
