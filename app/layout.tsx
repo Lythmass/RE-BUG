@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { roboto_mono } from 'fonts';
+import { AuthLayout } from 'components';
 
 export const metadata: Metadata = {
   title: 'RE-BUG',
@@ -14,8 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`w-full h-screen ${roboto_mono.className}`}>
-        {children}
+      <body
+        className={`w-full h-screen flex justify-center items-center ${roboto_mono.className}`}
+      >
+        <AuthLayout>{children}</AuthLayout>
       </body>
     </html>
   );
