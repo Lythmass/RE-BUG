@@ -1,5 +1,5 @@
 'use client';
-import { AuthButton, AuthInput, AuthTitle } from 'components';
+import { AuthButton, AuthChoice, AuthInput, AuthTitle } from 'components';
 import { useForm } from 'react-hook-form';
 import { loginAction } from 'actions';
 import { AuthTypes } from 'types';
@@ -38,6 +38,11 @@ export default function Home() {
         />
         <AuthButton text='Login' />
       </form>
+      <AuthChoice
+        before="Don't have an account?"
+        middle='Register in'
+        href='/register'
+      />
     </div>
   );
 }

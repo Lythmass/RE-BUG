@@ -3,4 +3,5 @@ export {
   AuthInput,
   AuthTitle,
   AuthButton,
+  AuthChoice,
 } from './GlobalComponents';
