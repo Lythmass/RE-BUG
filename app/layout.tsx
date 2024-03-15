@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`w-full h-screen flex justify-center items-center ${roboto_mono.className}`}
+        className={`w-full min-h-screen py-10 lg:py-0 flex justify-center items-center ${roboto_mono.className}`}
       >
         <AuthLayout>{children}</AuthLayout>
       </body>

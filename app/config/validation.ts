@@ -1,4 +1,20 @@
 export const validation = {
+  first_name: {
+    required: 'First name is required.',
+    minLength: { value: 2, message: 'Name must be more than 2' },
+    pattern: {
+      value: /^[a-zA-Z]+$/,
+      message: 'Enter only letters',
+    },
+  },
+  last_name: {
+    required: 'First name is required.',
+    minLength: { value: 2, message: 'Last name must be more than 2' },
+    pattern: {
+      value: /^[a-zA-Z]+$/,
+      message: 'Enter only letters',
+    },
+  },
   email: {
     required: 'Email is required.',
     pattern: {
@@ -12,6 +28,15 @@ export const validation = {
     maxLength: { value: 12, message: 'Username must be less than 12' },
     pattern: {
       value: /^[a-zA-Z0-9!-)]+$/,
+      message: "Such symbol isn't allowed!",
+    },
+  },
+  company_name: {
+    required: 'Company name is required.',
+    minLength: { value: 3, message: 'Name must be more than 3' },
+    maxLength: { value: 30, message: 'Name must be less than 20' },
+    pattern: {
+      value: /^[a-zA-Z0-9]+$/,
       message: "Such symbol isn't allowed!",
     },
   },

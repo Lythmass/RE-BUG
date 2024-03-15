@@ -4,4 +4,5 @@ export {
   AuthTitle,
   AuthButton,
   AuthChoice,
+  AuthRepeatPassword,
 } from './GlobalComponents';

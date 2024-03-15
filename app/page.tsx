@@ -40,7 +40,7 @@ export default function Home() {
       </form>
       <AuthChoice
         before="Don't have an account?"
-        middle='Register in'
+        middle='Register'
         href='/register'
       />
     </div>
