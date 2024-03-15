@@ -36,7 +36,7 @@ export const validation = {
     minLength: { value: 3, message: 'Name must be more than 3' },
     maxLength: { value: 30, message: 'Name must be less than 20' },
     pattern: {
-      value: /^[a-zA-Z0-9]+$/,
+      value: /^[a-zA-Z0-9 ]+$/,
       message: "Such symbol isn't allowed!",
     },
   },
@@ -46,8 +46,8 @@ export const validation = {
     maxLength: { value: 40, message: 'Username must be less than 40' },
     pattern: {
       value:
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!-)])(?!.*[^a-zA-Z0-9!-)]).+$/,
-      message: 'Only 1 capital, 1 lowercase, any !@#$%^&*(), 1 number',
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*())])(?!.*[^a-zA-Z0-9!@#$%^&*())]).+$/,
+      message: 'a-z, A-Z, 0-9, !@#$%^&*()',
     },
   },
 };
