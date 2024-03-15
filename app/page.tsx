@@ -1,13 +1,19 @@
 'use client';
 import { AuthButton, AuthInput, AuthTitle } from 'components';
 import { useForm } from 'react-hook-form';
+import { loginAction } from 'actions';
+import { AuthTypes } from 'types';
 
 export default function Home() {
-  const methods = useForm<{ username: string; password: string }>({
+  const methods = useForm<AuthTypes>({
     mode: 'all',
   });
-  const handleSubmit = (data: any) => {
-    console.log(data);
+  const handleSubmit = async (data: AuthTypes) => {
+    const formData = new FormData();
+    formData.append('email', data.email);
+    formData.append('password', data.password);
+    const response = await loginAction(formData);
+    console.log(response);
   };
   return (
     <div className='w-full h-full flex flex-col items-center p-10 gap-10'>
@@ -18,9 +24,9 @@ export default function Home() {
       >
         <AuthInput
           register={methods.register}
-          type='text'
-          name='username'
-          placeholder='Enter Username'
+          type='email'
+          name='email'
+          placeholder='Enter Email'
           errors={methods.formState.errors}
         />
         <AuthInput

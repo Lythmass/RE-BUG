@@ -2,8 +2,8 @@ import { UseFormRegister, UseFormSetError } from 'react-hook-form';
 
 export type AuthInputType = {
   type: 'text' | 'email' | 'password';
-  name: 'password' | 'username';
+  name: 'password' | 'username' | 'email';
   placeholder: string;
-  register: UseFormRegister<{ username: string; password: string }>;
+  register: UseFormRegister<AuthTypes>;
   errors: UseFormSetError;
 };
