@@ -3,15 +3,12 @@ import { AuthButton, AuthChoice, AuthInput, AuthTitle } from 'components';
 import { useForm } from 'react-hook-form';
 import { loginAction } from 'actions';
 import { AuthTypes } from 'types';
+import { fillFormData } from 'helpers';
 
 export default function Home() {
-  const methods = useForm<AuthTypes>({
-    mode: 'all',
-  });
+  const methods = useForm<AuthTypes>({ mode: 'all' });
   const handleSubmit = async (data: AuthTypes) => {
-    const formData = new FormData();
-    formData.append('email', data.email);
-    formData.append('password', data.password);
+    const formData = fillFormData(data);
     const response = await loginAction(formData);
     console.log(response);
   };
