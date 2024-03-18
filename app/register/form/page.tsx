@@ -2,15 +2,16 @@
 import { registerAction } from 'actions';
 import { AuthChoice, AuthRegisterForm, AuthTitle } from 'components';
 import { fillFormData } from 'helpers';
+import { useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { AuthTypes } from 'types';
 
 export default function RegisterAdmin() {
   const methods = useForm<AuthTypes>({ mode: 'all' });
+  const searchParams = useSearchParams();
   const handleSubmit = async (data: AuthTypes) => {
     const formData = fillFormData(data);
-    console.log(data.company_name);
-    formData.append('role_id', '1');
+    formData.append('role_id', `${searchParams.get('role')}`);
     const response = await registerAction(formData);
     console.log(response);
   };
