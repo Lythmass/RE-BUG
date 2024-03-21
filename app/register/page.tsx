@@ -2,7 +2,7 @@ import { AuthChoice, AuthTitle } from 'components';
 import Link from 'next/link';
 
 async function getRolesData() {
-  const response = await fetch('http://127.0.0.1:5000/roles/get', {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/roles/get`, {
     cache: 'no-cache',
   });
 
@@ -21,7 +21,7 @@ export default async function Register() {
         <Link
           key={role.role_id}
           className='font-medium text-center border-4 flex items-center justify-center hover:bg-accent-2 hover:text-dark transition-all bg-transparent border-accent-2 text-accent-2 text-4xl rounded-lg h-[10rem]'
-          href={`/register/form?role=${role.role_id}`}
+          href={`/register/form?role_id=${role.role_id}&role=${role.role}`}
         >
           {role.role}
         </Link>

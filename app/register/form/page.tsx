@@ -11,16 +11,16 @@ export default function RegisterAdmin() {
   const searchParams = useSearchParams();
   const handleSubmit = async (data: AuthTypes) => {
     const formData = fillFormData(data);
-    formData.append('role_id', `${searchParams.get('role')}`);
+    formData.append('role_id', `${searchParams.get('role_id')}`);
     try {
       await registerAction(formData);
     } catch (error: any) {
-      methods.setError('password', { message: error.response.data.message });
+      methods.setError('password', { message: error?.response.data.message });
     }
   };
   return (
     <div className='w-full h-full flex flex-col items-center p-10 gap-10'>
-      <AuthTitle text='register as admin to' />
+      <AuthTitle text={`register as ${searchParams.get('role')} on`} />
       <form
         onSubmit={methods.handleSubmit(handleSubmit)}
         className='w-full flex flex-col gap-5'

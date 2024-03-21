@@ -12,7 +12,7 @@ export default function Home() {
     try {
       await loginAction(formData);
     } catch (error: any) {
-      methods.setError('password', { message: error.response.data.message });
+      methods.setError('password', { message: error?.response.data.message });
     }
   };
   return (
