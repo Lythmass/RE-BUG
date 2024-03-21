@@ -12,8 +12,11 @@ export default function RegisterAdmin() {
   const handleSubmit = async (data: AuthTypes) => {
     const formData = fillFormData(data);
     formData.append('role_id', `${searchParams.get('role')}`);
-    const response = await registerAction(formData);
-    console.log(response);
+    try {
+      await registerAction(formData);
+    } catch (error: any) {
+      methods.setError('password', { message: error.response.data.message });
+    }
   };
   return (
     <div className='w-full h-full flex flex-col items-center p-10 gap-10'>

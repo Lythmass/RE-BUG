@@ -9,8 +9,11 @@ export default function Home() {
   const methods = useForm<AuthTypes>({ mode: 'all' });
   const handleSubmit = async (data: AuthTypes) => {
     const formData = fillFormData(data);
-    const response = await loginAction(formData);
-    console.log(response);
+    try {
+      await loginAction(formData);
+    } catch (error: any) {
+      methods.setError('password', { message: error.response.data.message });
+    }
   };
   return (
     <div className='w-full h-full flex flex-col items-center p-10 gap-10'>
