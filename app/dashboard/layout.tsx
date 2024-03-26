@@ -1,6 +1,12 @@
 import type { Metadata } from 'next';
 import '../globals.css';
 import { roboto_mono } from 'fonts';
+import {
+  AnalyticsDataContainer,
+  BugsDataContainer,
+  ProjectsDataContainer,
+  UserDataContainer,
+} from 'components';
 
 export const metadata: Metadata = {
   title: 'RE-BUG',
@@ -15,9 +21,16 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`w-full min-h-screen py-10 lg:py-0 flex justify-center items-center ${roboto_mono.className}`}
+        className={`w-full h-screen p-10 flex flex-col ${roboto_mono.className}`}
       >
-        {children}
+        <div className='w-full flex justify-between'>
+          <UserDataContainer />
+          <AnalyticsDataContainer />
+        </div>
+        <div className='w-full flex justify-between'>
+          <ProjectsDataContainer />
+          <BugsDataContainer>{children}</BugsDataContainer>
+        </div>
       </body>
     </html>
   );

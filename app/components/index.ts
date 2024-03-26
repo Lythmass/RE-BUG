@@ -7,3 +7,10 @@ export {
   AuthRepeatPassword,
   AuthRegisterForm,
 } from './GlobalComponents';
+
+export {
+  UserDataContainer,
+  ProjectsDataContainer,
+  BugsDataContainer,
+  AnalyticsDataContainer,
+} from './DashboardComponents';
