@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 async function getRolesData() {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/roles/get`, {
-    cache: 'no-cache',
+    cache: 'force-cache',
   });
 
   if (!response.ok) {
