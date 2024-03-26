@@ -1,5 +1,7 @@
+import { ContainerLayout } from 'components';
+
 export const AnalyticsDataContainer = () => {
-  return <div>AnalyticsDataContainer</div>;
+  return <ContainerLayout width='75%'>AnalyticsDataContainer</ContainerLayout>;
 };
 
 export default AnalyticsDataContainer;

@@ -1,3 +1,4 @@
+import { ContainerLayout } from 'components';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
@@ -24,5 +25,9 @@ async function getUserData() {
 
 export default async function Dashboard() {
   const response = await getUserData();
-  return <h1>{response?.logged_in_as.first_name}</h1>;
+  return (
+    <ContainerLayout width='75%'>
+      {response?.logged_in_as.first_name}
+    </ContainerLayout>
+  );
 }

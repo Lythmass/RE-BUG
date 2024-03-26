@@ -11,6 +11,6 @@ export {
 export {
   UserDataContainer,
   ProjectsDataContainer,
-  BugsDataContainer,
   AnalyticsDataContainer,
+  ContainerLayout,
 } from './DashboardComponents';

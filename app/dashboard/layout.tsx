@@ -3,7 +3,6 @@ import '../globals.css';
 import { roboto_mono } from 'fonts';
 import {
   AnalyticsDataContainer,
-  BugsDataContainer,
   ProjectsDataContainer,
   UserDataContainer,
 } from 'components';
@@ -21,15 +20,15 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`w-full h-screen p-10 flex flex-col ${roboto_mono.className}`}
+        className={`w-full h-screen p-10 flex flex-col gap-5 ${roboto_mono.className}`}
       >
-        <div className='w-full flex justify-between'>
+        <div className='w-full h-1/3 flex justify-between gap-5'>
           <UserDataContainer />
           <AnalyticsDataContainer />
         </div>
-        <div className='w-full flex justify-between'>
+        <div className='w-full h-full flex justify-between gap-5'>
           <ProjectsDataContainer />
-          <BugsDataContainer>{children}</BugsDataContainer>
+          {children}
         </div>
       </body>
     </html>
