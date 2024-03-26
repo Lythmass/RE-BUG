@@ -10,7 +10,6 @@ async function getUserData() {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/users/user`,
     {
-      cache: 'force-cache',
       next: { revalidate: 3600 },
       headers: {
         credentials: 'include',
