@@ -5,7 +5,10 @@ export const ContainerLayout: React.FC<{
   width: string;
 }> = (props) => {
   return (
-    <div className={`w-[${props.width}] h-full bg-light rounded-xl p-4`}>
+    <div
+      style={{ width: props.width }}
+      className={`h-full bg-light rounded-xl p-4`}
+    >
       {props.children}
     </div>
   );
