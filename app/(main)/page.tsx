@@ -4,16 +4,16 @@ import { useForm } from 'react-hook-form';
 import { loginAction } from 'actions';
 import { AuthTypes } from 'types';
 import { fillFormData } from 'helpers';
+import { useRouter } from 'next/navigation';
+import { authException } from 'exceptions';
 
 export default function Home() {
   const methods = useForm<AuthTypes>({ mode: 'all' });
+  const router = useRouter();
+
   const handleSubmit = async (data: AuthTypes) => {
     const formData = fillFormData(data);
-    try {
-      await loginAction(formData);
-    } catch (error: any) {
-      methods.setError('password', { message: error?.response.data.message });
-    }
+    authException({ router, methods, formData, action: loginAction });
   };
   return (
     <div className='w-full h-full flex flex-col items-center p-10 gap-10'>

@@ -14,3 +14,8 @@ export const registerAction = async (formData: FormData) => {
   const response = await instance.post('/users/register', formData);
   return response;
 };
+
+export const getUserDataAction = async () => {
+  const response = await instance.get('/users/user');
+  return response;
+};

@@ -1,0 +1,1 @@
+export { authException } from './authException';
