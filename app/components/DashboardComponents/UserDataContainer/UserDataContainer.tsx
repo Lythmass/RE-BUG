@@ -1,5 +1,5 @@
 import { getUserDataAction } from 'actions';
-import { ContainerLayout } from 'components';
+import { ContainerLayout, LogOutButton } from 'components';
 
 export const UserDataContainer = async () => {
   const response = await getUserDataAction();
@@ -15,9 +15,7 @@ export const UserDataContainer = async () => {
           <span className='font-bold'>{response?.logged_in_as.role_name}</span>
         </h1>
       </div>
-      <div className='border-b hover:bg-accent-1 hover:text-light transition-all leading-none text-accent-1 font-bold border-b-accent-1 py-2 px-3 cursor-pointer'>
-        Log Out
-      </div>
+      <LogOutButton />
     </ContainerLayout>
   );
 };
