@@ -4,7 +4,8 @@ export const authException = async (props: AuthExceptionType) => {
   try {
     const response: any = await props.action(props.formData);
     if (
-      response.data.message == 'User Logged in successfully' &&
+      (response.data.message == 'User logged in successfully' ||
+        response.data.message == 'User registered successfully') &&
       response.status == 200
     ) {
       props.router.push('/dashboard');

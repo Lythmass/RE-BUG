@@ -17,11 +17,11 @@ export const ProjectsDataContainer = async () => {
         </Link>
       </div>
       <div className='w-full flex flex-col mt-3'>
-        {projects?.data.map((project: ProjectType) => {
+        {projects?.data.map((project: ProjectType, index: number) => {
           return (
             <ProjectOption
-              key={project.id}
-              id={project.id}
+              key={index}
+              id={index + 1}
               project={project.project}
             />
           );
