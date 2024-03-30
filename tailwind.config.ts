@@ -19,6 +19,9 @@ const config: Config = {
         'accent-1': 'var(--accent-1)',
         'accent-2': 'var(--accent-2)',
       },
+      screens: {
+        '3xl': '1600px',
+      },
     },
   },
   plugins: [],

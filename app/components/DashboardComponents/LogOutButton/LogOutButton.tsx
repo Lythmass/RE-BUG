@@ -11,13 +11,13 @@ export const LogOutButton = () => {
         router.push('/');
       }
     } catch (error: any) {
-      console.log(error);
+      alert(error);
     }
   };
   return (
     <div
       onClick={handleClick}
-      className='border-b hover:bg-accent-1 hover:text-light transition-all leading-none text-accent-1 font-bold border-b-accent-1 py-2 px-3 cursor-pointer'
+      className='border-b w-full hover:bg-accent-1 hover:text-light transition-all leading-none text-accent-1 font-bold border-b-accent-1 py-2 px-3 cursor-pointer'
     >
       Log Out
     </div>

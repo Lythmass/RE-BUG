@@ -5,17 +5,23 @@ export const UserDataContainer = async () => {
   const response = await getUserDataAction();
   return (
     <ContainerLayout width='25%'>
-      <div className='flex flex-col gap-1 items-start'>
-        <h1 className='text-lg font-bold'>{response?.logged_in_as.username}</h1>
-        <h1>
-          {response?.logged_in_as.first_name} {response?.logged_in_as.last_name}
+      <div className='flex flex-col h-full gap-1 items-start justify-between'>
+        <h1 className='text-xl 3xl:text-3xl font-bold'>
+          Welcome, {response?.logged_in_as.username}
         </h1>
-        <h1>
-          role:{' '}
+        <h1 className='3xl:text-lg'>
+          Your name:{' '}
+          <span className='font-bold'>
+            {response?.logged_in_as.first_name}{' '}
+            {response?.logged_in_as.last_name}
+          </span>
+        </h1>
+        <h1 className='3xl:text-lg'>
+          Your role:{' '}
           <span className='font-bold'>{response?.logged_in_as.role_name}</span>
         </h1>
+        <LogOutButton />
       </div>
-      <LogOutButton />
     </ContainerLayout>
   );
 };
