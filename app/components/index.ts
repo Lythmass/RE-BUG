@@ -15,4 +15,6 @@ export {
   ContainerLayout,
   LogOutButton,
   ProjectOption,
+  AddProjectModal,
+  ModalInput,
 } from './DashboardComponents';
