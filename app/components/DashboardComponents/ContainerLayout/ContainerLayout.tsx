@@ -7,7 +7,7 @@ export const ContainerLayout: React.FC<{
   return (
     <div
       style={{ width: props.width }}
-      className={`h-full bg-light rounded-xl p-4`}
+      className={`h-full bg-light rounded-xl p-4 text-dark`}
     >
       {props.children}
     </div>

@@ -1,3 +1,3 @@
 export { loginAction, registerAction } from './AuthActions';
-export { getUserDataAction } from './UserActions';
+export { FetchAuthDataActions } from './FetchAuthDataActions';
 export { logoutAction } from './AuthActions';

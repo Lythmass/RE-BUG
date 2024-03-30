@@ -1,8 +1,8 @@
-import { getUserDataAction } from 'actions';
+import { FetchAuthDataActions } from 'actions';
 import { ContainerLayout, LogOutButton } from 'components';
 
 export const UserDataContainer = async () => {
-  const response = await getUserDataAction();
+  const response = await FetchAuthDataActions('/users/user');
   return (
     <ContainerLayout width='25%'>
       <div className='flex flex-col h-full gap-1 items-start justify-between'>

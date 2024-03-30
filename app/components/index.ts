@@ -14,4 +14,5 @@ export {
   AnalyticsDataContainer,
   ContainerLayout,
   LogOutButton,
+  ProjectOption,
 } from './DashboardComponents';
