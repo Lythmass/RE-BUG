@@ -28,7 +28,7 @@ export default function RootLayout({
           <UserDataContainer />
           <AnalyticsDataContainer />
         </div>
-        <div className='w-full h-full flex justify-between gap-5'>
+        <div className='w-full h-full overflow-hidden flex justify-between gap-5'>
           <ProjectsDataContainer />
           {children}
         </div>

@@ -9,8 +9,8 @@ export const projectException = async (
   try {
     const response: any = await createProjectAction(formData);
     if (response.status == 200) {
-      router.push('/dashboard');
       revalidateData('/projects/get');
+      router.push(`/dashboard/${response.data.id}`);
     }
   } catch (error: any) {
     methods.setError('project', {

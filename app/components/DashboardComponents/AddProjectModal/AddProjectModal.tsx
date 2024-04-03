@@ -1,5 +1,5 @@
 'use client';
-import { useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { ModalInput } from '..';
 import { useForm } from 'react-hook-form';
 import { fillFormData } from 'helpers';
@@ -10,12 +10,14 @@ export const AddProjectModal = () => {
   const searchParams = useSearchParams();
   const methods = useForm({ mode: 'all' });
   const router = useRouter();
+  const pathname = usePathname();
   const handleSubmit = (data: any) => {
     const formData = fillFormData(data);
+    methods.resetField('project');
     projectException(formData, methods, router);
   };
   const handleClose = () => {
-    router.push('/dashboard');
+    router.push(pathname);
     methods.resetField('project');
   };
   return (

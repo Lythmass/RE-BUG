@@ -17,4 +17,5 @@ export {
   ProjectOption,
   AddProjectModal,
   ModalInput,
+  HeaderLayout,
 } from './DashboardComponents';
