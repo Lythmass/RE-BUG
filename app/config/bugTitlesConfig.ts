@@ -21,6 +21,10 @@ export const bugTitlesConfig = [
   },
   {
     id: 6,
+    title: 'Resolver',
+  },
+  {
+    id: 7,
     title: 'Bug Found At',
   },
 ];

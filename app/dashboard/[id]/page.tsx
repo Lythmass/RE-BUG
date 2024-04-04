@@ -12,23 +12,30 @@ export default async function ProjectId({
   return (
     <ContainerLayout width='75%'>
       <HeaderLayout href='/dashboard/?modal=add_bug' title='Bugs' />
-      <div className='grid grid-cols-6 mt-3 h-full content-start gap-3 overflow-y-auto'>
-        {bugTitlesConfig.map((bug, index) => {
-          return <BugTitles key={index} title={bug.title} />;
-        })}
-        {bugs?.data.map((bug: BugType, index: number) => {
-          return (
-            <Bug
-              key={index}
-              id={bug.id}
-              name={bug.name}
-              severity={bug.severity}
-              status={bug.status}
-              reporter={bug.reporter}
-              created_at={bug.created_at}
-            />
-          );
-        })}
+      <div className='w-full flex flex-col gap-3 h-full'>
+        <div className='grid pl-2  w-full grid-cols-7 mt-3 content-start gap-3'>
+          {bugTitlesConfig.map((bug, index) => {
+            return <BugTitles key={index} title={bug.title} />;
+          })}
+        </div>
+        <div className='w-full mb-6 flex flex-col h-full gap-3 items-start justify-start overflow-y-auto'>
+          {bugs?.data.map((bug: BugType, index: number) => {
+            return (
+              <Bug
+                key={index}
+                id={bug.id}
+                name={bug.name}
+                color={bug.color}
+                severity={bug.severity}
+                status={bug.status}
+                reporter={bug.reporter}
+                resolver={bug.resolver}
+                created_at={bug.created_at}
+                project_id={params.id}
+              />
+            );
+          })}
+        </div>
       </div>
     </ContainerLayout>
   );
