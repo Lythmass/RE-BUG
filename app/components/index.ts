@@ -16,8 +16,9 @@ export {
   LogOutButton,
   ProjectOption,
   AddProjectModal,
-  ModalInput,
   HeaderLayout,
 } from './DashboardComponents';
 
-export { Bug, BugTitles } from './BugComponents';
+export { Bug, BugTitles, AddBugModal } from './BugComponents';
+
+export { ModalInput, Modal } from './GlobalComponents';
