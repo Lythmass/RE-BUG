@@ -6,7 +6,7 @@ export {
   AuthChoice,
   AuthRepeatPassword,
   AuthRegisterForm,
-} from './GlobalComponents';
+} from './AuthComponents';
 
 export {
   UserDataContainer,
