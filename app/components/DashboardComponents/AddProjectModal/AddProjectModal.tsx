@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { fillFormData } from 'helpers';
 import { useRouter } from 'next/navigation';
 import { projectException } from 'exceptions';
+import { projectValidation } from 'config';
 
 export const AddProjectModal = () => {
   const searchParams = useSearchParams();
@@ -34,6 +35,7 @@ export const AddProjectModal = () => {
             placeholder='Project Name'
             register={methods.register}
             errors={methods.formState.errors}
+            validation={projectValidation}
           />
         </Modal>
       )}

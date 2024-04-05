@@ -1,12 +1,11 @@
 import { raleway } from 'fonts';
 import { ModalInputType } from './ModalInputType';
-import { projectValidation } from 'config';
 
 export const ModalInput: React.FC<ModalInputType> = (props) => {
   return (
     <div className='w-full mt-2'>
       <input
-        {...props.register(props.name, projectValidation)}
+        {...props.register(props.name, props.validation[props.name])}
         type='text'
         autoComplete='off'
         placeholder={props.placeholder}
