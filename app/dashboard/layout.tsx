@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import '../globals.css';
 import { roboto_mono } from 'fonts';
 import {
-  AddBugModal,
   AddProjectModal,
   AnalyticsDataContainer,
+  AddBugModalSeverities,
   ProjectsDataContainer,
   UserDataContainer,
 } from 'components';
@@ -24,7 +24,7 @@ export default function RootLayout({
       <body
         className={`w-full h-screen p-10 flex flex-col gap-5 ${roboto_mono.className}`}
       >
-        <AddBugModal />
+        <AddBugModalSeverities />
         <AddProjectModal />
         <div className='w-full h-1/3 flex justify-between gap-5'>
           <UserDataContainer />

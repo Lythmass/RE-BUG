@@ -19,6 +19,11 @@ export {
   HeaderLayout,
 } from './DashboardComponents';
 
-export { Bug, BugTitles, AddBugModal } from './BugComponents';
+export {
+  Bug,
+  BugTitles,
+  AddBugModal,
+  AddBugModalSeverities,
+} from './BugComponents';
 
 export { ModalInput, Modal } from './GlobalComponents';
