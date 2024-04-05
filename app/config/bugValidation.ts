@@ -13,5 +13,11 @@ export const bugValidation = {
     minLength: { value: 100, message: 'Description must be more than 100' },
     maxLength: { value: 1000, message: 'Description must be less than 1000' },
   },
-  severity: { required: 'Severity is required!' },
+  severity_id: {
+    required: 'Severity is required!',
+    pattern: {
+      value: /^[1-5]+$/,
+      message: 'Severity is required!',
+    },
+  },
 };

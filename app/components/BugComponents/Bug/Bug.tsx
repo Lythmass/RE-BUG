@@ -27,7 +27,7 @@ export const Bug: React.FC<BugType> = (props) => {
       <h1 style={{ backgroundColor: props.color }}>
         {props.reporter.username}
       </h1>
-      <h1>{props.resolver ? props.resolver.username : props.resolver}</h1>
+      <h1>{props.resolver ? props.resolver.username : 'Not Resolved'}</h1>
       <h1>{formattedDate}</h1>
     </Link>
   );

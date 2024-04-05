@@ -3,22 +3,30 @@ import { Modal, ModalInput } from 'components';
 import { bugValidation } from 'config';
 import { raleway } from 'fonts';
 import { fillFormData } from 'helpers';
-import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+import {
+  usePathname,
+  useSearchParams,
+  useRouter,
+  useParams,
+} from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { SeverityType } from 'types/SeverityType';
 import { BugFromType } from './BugFromType';
+import { bugException } from 'exceptions';
 
 export const AddBugModal: React.FC<SeverityType> = (props) => {
   const searchParams = useSearchParams();
+  const params = useParams();
   const methods = useForm<BugFromType>({
     mode: 'all',
   });
   const router = useRouter();
   const pathname = usePathname();
   const handleSubmit = (data: any) => {
+    data['project_id'] = params.id;
     const formData = fillFormData(data);
-    methods.resetField('name');
-    console.log(formData);
+    //methods.resetField('name');
+    bugException(formData, methods, router, params.id);
   };
   const handleClose = () => {
     router.push(pathname);
@@ -43,14 +51,14 @@ export const AddBugModal: React.FC<SeverityType> = (props) => {
           />
           <div className='w-full h-full'>
             <select
-              {...methods.register('severity', bugValidation['severity'])}
-              defaultValue={''}
+              {...methods.register('severity_id', bugValidation['severity_id'])}
+              defaultValue={0}
               className='w-full px-3 py-2 focus:outline-none bg-transparent border border-dark rounded-full'
             >
               <option
                 className={`bg-light ${raleway.className} font-bold`}
                 disabled
-                value=''
+                value={0}
               >
                 Severity
               </option>
@@ -62,6 +70,7 @@ export const AddBugModal: React.FC<SeverityType> = (props) => {
                     }}
                     className={`bg-light ${raleway.className} font-bold`}
                     key={index}
+                    value={severity.severity_id}
                   >
                     {severity.severity}
                   </option>
@@ -71,7 +80,7 @@ export const AddBugModal: React.FC<SeverityType> = (props) => {
             <p
               className={`text-accent-1 font-medium text-sm leading-4 lg:h-2 ${raleway.className} px-7`}
             >
-              {methods.formState.errors['severity']?.message}
+              {methods.formState.errors['severity_id']?.message}
             </p>
           </div>
           <div className='w-full h-full'>

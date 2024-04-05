@@ -1,5 +1,5 @@
 export type BugFromType = {
   name: string;
   description: string;
-  severity: string;
+  severity_id: number;
 };
