@@ -2,27 +2,20 @@
 import { Modal, ModalInput } from 'components';
 import { bugValidation } from 'config';
 import { raleway } from 'fonts';
-import { fillFormData, resetFormData } from 'helpers';
-import {
-  usePathname,
-  useSearchParams,
-  useRouter,
-  useParams,
-} from 'next/navigation';
+import { fillFormData, handleClose, resetFormData } from 'helpers';
 import { useForm } from 'react-hook-form';
 import { SeverityType } from 'types/SeverityType';
-import { BugFromType } from './BugFromType';
+import { BugFormType } from './BugFormType';
 import { dashboardException } from 'exceptions';
 import { createBugAction } from 'actions';
+import { usePostDashboard } from 'hooks';
 
 export const AddBugModal: React.FC<SeverityType> = (props) => {
-  const searchParams = useSearchParams();
-  const params = useParams();
-  const methods = useForm<BugFromType>({
+  const methods = useForm<BugFormType>({
     mode: 'all',
   });
-  const router = useRouter();
-  const pathname = usePathname();
+
+  const { searchParams, params, router, pathname } = usePostDashboard();
   const handleSubmit = (data: any) => {
     data['project_id'] = params.id;
     const formData = fillFormData(data);
@@ -37,16 +30,11 @@ export const AddBugModal: React.FC<SeverityType> = (props) => {
       params.id,
     );
   };
-  const handleClose = () => {
-    router.push(pathname);
-    resetFormData(methods.getValues(), methods);
-  };
-
   return (
     <>
       {searchParams.get('modal') == 'add_bug' && (
         <Modal
-          handleClose={handleClose}
+          handleClose={() => handleClose(pathname, router, methods)}
           handleSubmit={handleSubmit}
           methods={methods}
           title='Add New Bug'

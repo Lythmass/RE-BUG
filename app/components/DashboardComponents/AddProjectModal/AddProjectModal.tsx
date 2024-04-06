@@ -1,18 +1,16 @@
 'use client';
-import { usePathname, useSearchParams } from 'next/navigation';
+
 import { Modal, ModalInput } from 'components';
 import { useForm } from 'react-hook-form';
-import { fillFormData, resetFormData } from 'helpers';
-import { useRouter } from 'next/navigation';
+import { fillFormData, handleClose, resetFormData } from 'helpers';
 import { dashboardException } from 'exceptions';
 import { projectValidation } from 'config';
 import { createProjectAction } from 'actions';
+import { usePostDashboard } from 'hooks';
 
 export const AddProjectModal = () => {
-  const searchParams = useSearchParams();
   const methods = useForm({ mode: 'all' });
-  const router = useRouter();
-  const pathname = usePathname();
+  const { searchParams, router, pathname } = usePostDashboard();
   const handleSubmit = (data: any) => {
     const formData = fillFormData(data);
     resetFormData(data, methods);
@@ -26,15 +24,11 @@ export const AddProjectModal = () => {
       '',
     );
   };
-  const handleClose = () => {
-    router.push(pathname);
-    resetFormData(methods.getValues(), methods);
-  };
   return (
     <>
       {searchParams.get('modal') == 'add_project' && (
         <Modal
-          handleClose={handleClose}
+          handleClose={() => handleClose(pathname, router, methods)}
           methods={methods}
           handleSubmit={handleSubmit}
           title='Add New Project'
