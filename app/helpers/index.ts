@@ -1,1 +1,2 @@
-export { default as fillFormData } from './FillFormData';
+export { fillFormData } from './fillFormData';
+export { resetFormData } from './resetFormData';

@@ -24,6 +24,7 @@ export default async function ProjectId({
               <Bug
                 key={index}
                 id={bug.id}
+                index={index}
                 name={bug.name}
                 color={bug.color}
                 severity={bug.severity}

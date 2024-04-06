@@ -2,7 +2,7 @@
 import { Modal, ModalInput } from 'components';
 import { bugValidation } from 'config';
 import { raleway } from 'fonts';
-import { fillFormData } from 'helpers';
+import { fillFormData, resetFormData } from 'helpers';
 import {
   usePathname,
   useSearchParams,
@@ -25,12 +25,12 @@ export const AddBugModal: React.FC<SeverityType> = (props) => {
   const handleSubmit = (data: any) => {
     data['project_id'] = params.id;
     const formData = fillFormData(data);
-    //methods.resetField('name');
+    resetFormData(data, methods);
     bugException(formData, methods, router, params.id);
   };
   const handleClose = () => {
     router.push(pathname);
-    methods.resetField('name');
+    resetFormData(methods.getValues(), methods);
   };
 
   return (

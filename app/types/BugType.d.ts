@@ -1,5 +1,6 @@
 export type BugType = {
   id: number;
+  index: number;
   name: string;
   severity: {
     severity: string;

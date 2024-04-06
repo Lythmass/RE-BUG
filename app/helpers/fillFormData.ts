@@ -7,5 +7,3 @@ export const fillFormData = (data: AuthTypes) => {
   }
   return formData;
 };
-
-export default fillFormData;

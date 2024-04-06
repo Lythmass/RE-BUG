@@ -2,7 +2,7 @@
 import { usePathname, useSearchParams } from 'next/navigation';
 import { Modal, ModalInput } from 'components';
 import { useForm } from 'react-hook-form';
-import { fillFormData } from 'helpers';
+import { fillFormData, resetFormData } from 'helpers';
 import { useRouter } from 'next/navigation';
 import { projectException } from 'exceptions';
 import { projectValidation } from 'config';
@@ -14,12 +14,12 @@ export const AddProjectModal = () => {
   const pathname = usePathname();
   const handleSubmit = (data: any) => {
     const formData = fillFormData(data);
-    methods.resetField('project');
+    resetFormData(data, methods);
     projectException(formData, methods, router);
   };
   const handleClose = () => {
     router.push(pathname);
-    methods.resetField('project');
+    resetFormData(methods.getValues(), methods);
   };
   return (
     <>

@@ -10,7 +10,7 @@ export const Bug: React.FC<BugType> = (props) => {
       href={`/dashboard/${props.project_id}/${props.id}`}
       className={`grid cursor-default py-2 pl-2 hover:bg-dark hover:text-light w-full grid-cols-7 font-medium content-start gap-3 ${raleway.className} `}
     >
-      <h1>{props.id}.</h1>
+      <h1>{props.index + 1}.</h1>
       <h1>{props.name}</h1>
       <h1
         style={{ backgroundColor: props.status.color }}
