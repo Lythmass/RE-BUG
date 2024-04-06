@@ -4,8 +4,9 @@ import { Modal, ModalInput } from 'components';
 import { useForm } from 'react-hook-form';
 import { fillFormData, resetFormData } from 'helpers';
 import { useRouter } from 'next/navigation';
-import { projectException } from 'exceptions';
+import { dashboardException } from 'exceptions';
 import { projectValidation } from 'config';
+import { createProjectAction } from 'actions';
 
 export const AddProjectModal = () => {
   const searchParams = useSearchParams();
@@ -15,7 +16,15 @@ export const AddProjectModal = () => {
   const handleSubmit = (data: any) => {
     const formData = fillFormData(data);
     resetFormData(data, methods);
-    projectException(formData, methods, router);
+    dashboardException(
+      'project',
+      'projects',
+      methods,
+      createProjectAction,
+      formData,
+      router,
+      '',
+    );
   };
   const handleClose = () => {
     router.push(pathname);

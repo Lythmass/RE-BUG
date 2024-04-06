@@ -12,7 +12,8 @@ import {
 import { useForm } from 'react-hook-form';
 import { SeverityType } from 'types/SeverityType';
 import { BugFromType } from './BugFromType';
-import { bugException } from 'exceptions';
+import { dashboardException } from 'exceptions';
+import { createBugAction } from 'actions';
 
 export const AddBugModal: React.FC<SeverityType> = (props) => {
   const searchParams = useSearchParams();
@@ -26,7 +27,15 @@ export const AddBugModal: React.FC<SeverityType> = (props) => {
     data['project_id'] = params.id;
     const formData = fillFormData(data);
     resetFormData(data, methods);
-    bugException(formData, methods, router, params.id);
+    dashboardException(
+      'name',
+      'bugs',
+      methods,
+      createBugAction,
+      formData,
+      router,
+      params.id,
+    );
   };
   const handleClose = () => {
     router.push(pathname);
