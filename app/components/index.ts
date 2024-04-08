@@ -27,6 +27,6 @@ export {
   AddBugModalSeverities,
 } from './BugsComponents';
 
-export { DateContainer } from './BugComponents';
+export { DateContainer, DescriptionsContainer } from './BugComponents';
 
 export { ModalInput, Modal } from './GlobalComponents';

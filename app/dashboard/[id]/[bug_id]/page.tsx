@@ -3,6 +3,7 @@ import {
   BugStatusAndSeverity,
   ContainerLayout,
   DateContainer,
+  DescriptionsContainer,
   HeaderLayout,
 } from 'components';
 
@@ -24,7 +25,7 @@ export default async function BugId({
         href={`/dashboard/${params.id}`}
         icon={'<'}
       />
-      <div className='flex gap-3 items-center'>
+      <div className='flex gap-3 items-center mb-3'>
         <h1 style={{ color: bug.data.status.color }} className='font-medium'>
           Status:
         </h1>
@@ -48,6 +49,16 @@ export default async function BugId({
             date={`${isClosed ? `Closed: ${updated_at}` : 'Closed: Not Closed'}`}
           />
         </div>
+      </div>
+      <div className='flex flex-col gap-3 w-full'>
+        <DescriptionsContainer
+          title='Description'
+          description={bug.data.description}
+        />
+        <DescriptionsContainer
+          title='Solution'
+          description={bug.data.solution}
+        />
       </div>
       {/* <h1>Bug ID: {params.bug_id}</h1>
       <p>ID: {params.id}</p>
