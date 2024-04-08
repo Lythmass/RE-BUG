@@ -24,6 +24,6 @@ export {
   BugTitles,
   AddBugModal,
   AddBugModalSeverities,
-} from './BugComponents';
+} from './BugsComponents';
 
 export { ModalInput, Modal } from './GlobalComponents';
