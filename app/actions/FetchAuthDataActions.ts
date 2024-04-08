@@ -15,9 +15,10 @@ export const FetchAuthDataActions = async (query: string) => {
       Cookie: `access_token_cookie=${access_token_cookie}`,
     },
   });
-  if (!response.ok) {
+  if (!response.ok && response.status != 404) {
     redirect('/');
   }
+  if (response.status == 404) return { data: { name: 'Page Not Found' } };
   return response.json();
 };
 

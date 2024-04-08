@@ -11,9 +11,9 @@ export default async function ProjectId({
   const bugs = await FetchAuthDataActions(`/bugs/get/${params.id}`);
   return (
     <ContainerLayout width='75%'>
-      <HeaderLayout href='?modal=add_bug' title='Bugs' />
+      <HeaderLayout href='?modal=add_bug' title='Bugs' icon='+' />
       <div className='w-full flex flex-col gap-3 h-full'>
-        <div className='grid pl-2  w-full grid-cols-7 mt-3 content-start gap-3'>
+        <div className='grid pl-2  w-full grid-cols-7 content-start gap-3'>
           {bugTitlesConfig.map((bug, index) => {
             return <BugTitles key={index} title={bug.title} />;
           })}

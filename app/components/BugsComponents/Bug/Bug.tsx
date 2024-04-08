@@ -1,3 +1,4 @@
+import { BugStatusAndSeverity } from 'components';
 import { raleway } from 'fonts';
 import Link from 'next/link';
 import { BugType } from 'types';
@@ -12,18 +13,14 @@ export const Bug: React.FC<BugType> = (props) => {
     >
       <h1>{props.index + 1}.</h1>
       <h1>{props.name}</h1>
-      <h1
-        style={{ backgroundColor: props.status.color }}
-        className={`px-2 flex text-light items-center rounded-full`}
-      >
-        {props.status.status}
-      </h1>
-      <h1
-        style={{ backgroundColor: props.severity.color }}
-        className={`px-2 flex text-light items-center rounded-full`}
-      >
-        {props.severity.severity}
-      </h1>
+      <BugStatusAndSeverity
+        title={props.status.status}
+        color={props.status.color}
+      />
+      <BugStatusAndSeverity
+        title={props.severity.severity}
+        color={props.severity.color}
+      />
       <h1 style={{ backgroundColor: props.color }}>
         {props.reporter.username}
       </h1>

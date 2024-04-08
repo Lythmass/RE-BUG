@@ -6,8 +6,8 @@ export const ProjectsDataContainer = async () => {
   const projects = await FetchAuthDataActions('/projects/get');
   return (
     <ContainerLayout width='25%'>
-      <HeaderLayout href='?modal=add_project' title='Projects' />
-      <div className='w-full flex flex-col mt-3 h-full overflow-y-auto'>
+      <HeaderLayout href='?modal=add_project' title='Projects' icon='+' />
+      <div className='w-full flex flex-col h-full overflow-y-auto'>
         {projects?.data.map((project: ProjectType, index: number) => {
           return (
             <ProjectOption

@@ -6,3 +6,4 @@ export { LogOutButton } from './LogOutButton';
 export { ProjectOption } from './ProjectOption';
 export { AddProjectModal } from './AddProjectModal';
 export { HeaderLayout } from './HeaderLayout';
+export { BugStatusAndSeverity } from './BugStatusAndSeverity';
