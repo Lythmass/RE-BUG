@@ -19,7 +19,7 @@ export default async function BugId({
   );
   const created_at = new Date(bug.data.created_at).toLocaleDateString();
   const updated_at = new Date(bug.data.updated_at).toLocaleDateString();
-  const isClosed = bug.data.status === 'Closed' ? true : false;
+  const isClosed = bug.data.status.status === 'Closed' ? true : false;
 
   return (
     <>

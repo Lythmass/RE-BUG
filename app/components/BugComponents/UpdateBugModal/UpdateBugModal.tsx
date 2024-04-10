@@ -59,7 +59,7 @@ export const UpdateBugModal: React.FC<UpdateBugModalType> = (props) => {
                 />
               </div>
               <div className='w-full'>
-                <h1 className='ml-5'>Status:</h1>
+                <h1 className='ml-5'>Severity:</h1>
                 <ModalDropdown
                   methods={methods}
                   name='severity_id'

@@ -7,7 +7,7 @@ export const DescriptionsContainer: React.FC<DescriptionsContainerType> = (
   return (
     <div className='w-full flex flex-col gap-1 items-start'>
       <h1 className='font-bold text-3xl'>{props.title}</h1>
-      <p className={`${raleway.className}  px-3 py-2 font-medium`}>
+      <p className={`${raleway.className}  px-3 py-2 font-medium break-all`}>
         {props.description}
       </p>
     </div>
