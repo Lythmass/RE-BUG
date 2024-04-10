@@ -6,4 +6,5 @@ export type ModalInputType = {
   register: UseFormRegister;
   errors: UseFormSetError;
   validation: any;
+  initialValue?: string;
 };

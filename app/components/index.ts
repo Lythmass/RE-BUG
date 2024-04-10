@@ -18,6 +18,8 @@ export {
   AddProjectModal,
   HeaderLayout,
   BugStatusAndSeverity,
+  ModalTextarea,
+  ModalDropdown,
 } from './DashboardComponents';
 
 export {
@@ -27,6 +29,11 @@ export {
   AddBugModalSeverities,
 } from './BugsComponents';
 
-export { DateContainer, DescriptionsContainer } from './BugComponents';
+export {
+  DateContainer,
+  DescriptionsContainer,
+  UpdateBug,
+  UpdateBugModal,
+} from './BugComponents';
 
 export { ModalInput, Modal } from './GlobalComponents';

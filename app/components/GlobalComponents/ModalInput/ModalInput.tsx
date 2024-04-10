@@ -3,9 +3,10 @@ import { ModalInputType } from './ModalInputType';
 
 export const ModalInput: React.FC<ModalInputType> = (props) => {
   return (
-    <div className='w-full mt-2'>
+    <div className='w-full'>
       <input
         {...props.register(props.name, props.validation[props.name])}
+        {...(props.initialValue && { defaultValue: props.initialValue })}
         type='text'
         autoComplete='off'
         placeholder={props.placeholder}

@@ -2,11 +2,14 @@ export type BugType = {
   id: number;
   index: number;
   name: string;
+  description?: string;
+  solution?: string;
   severity: {
+    severity_id: number;
     severity: string;
     color: string;
   };
-  status: { status: string; color: string };
+  status: { status_id: number; status: string; color: string };
   color: string;
   reporter: {
     first_name: string;

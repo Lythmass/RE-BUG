@@ -7,3 +7,5 @@ export { ProjectOption } from './ProjectOption';
 export { AddProjectModal } from './AddProjectModal';
 export { HeaderLayout } from './HeaderLayout';
 export { BugStatusAndSeverity } from './BugStatusAndSeverity';
+export { ModalTextarea } from './ModalTextarea';
+export { ModalDropdown } from './ModalDropdown';

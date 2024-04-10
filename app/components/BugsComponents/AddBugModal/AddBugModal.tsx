@@ -1,7 +1,6 @@
 'use client';
-import { Modal, ModalInput } from 'components';
+import { Modal, ModalDropdown, ModalInput, ModalTextarea } from 'components';
 import { bugValidation } from 'config';
-import { raleway } from 'fonts';
 import { fillFormData, handleClose, resetFormData } from 'helpers';
 import { useForm } from 'react-hook-form';
 import { SeverityType } from 'types/SeverityType';
@@ -46,52 +45,14 @@ export const AddBugModal: React.FC<SeverityType> = (props) => {
             register={methods.register}
             validation={bugValidation}
           />
-          <div className='w-full h-full'>
-            <select
-              {...methods.register('severity_id', bugValidation['severity_id'])}
-              defaultValue={0}
-              className='w-full px-3 py-2 focus:outline-none bg-transparent border border-dark rounded-full'
-            >
-              <option
-                className={`bg-light ${raleway.className} font-bold`}
-                disabled
-                value={0}
-              >
-                Severity
-              </option>
-              {props.severities.map((severity, index) => {
-                return (
-                  <option
-                    style={{
-                      color: severity.color,
-                    }}
-                    className={`bg-light ${raleway.className} font-bold`}
-                    key={index}
-                    value={severity.severity_id}
-                  >
-                    {severity.severity}
-                  </option>
-                );
-              })}
-            </select>
-            <p
-              className={`text-accent-1 font-medium text-sm leading-4 lg:h-2 ${raleway.className} px-7`}
-            >
-              {methods.formState.errors['severity_id']?.message}
-            </p>
-          </div>
-          <div className='w-full h-full'>
-            <textarea
-              className={`${raleway.className} rounded-xl h-full focus:outline-none border border-dark bg-transparent font-medium px-3 py-2 w-[20rem] text-lg`}
-              placeholder='Bug Description'
-              {...methods.register('description', bugValidation['description'])}
-            />
-            <p
-              className={`text-accent-1 font-medium text-sm leading-4 lg:h-2 ${raleway.className} px-7`}
-            >
-              {methods.formState.errors['description']?.message}
-            </p>
-          </div>
+          <ModalDropdown
+            methods={methods}
+            name='severity_id'
+            items={props.severities}
+            title='Severity'
+            initialValue={0}
+          />
+          <ModalTextarea name='description' methods={methods} />
         </Modal>
       )}
     </>
