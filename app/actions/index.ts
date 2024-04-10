@@ -1,5 +1,4 @@
-export { loginAction, registerAction } from './AuthActions';
+export { loginAction, registerAction, logoutAction } from './AuthActions';
 export { FetchAuthDataActions, revalidateData } from './FetchAuthDataActions';
-export { logoutAction } from './AuthActions';
 export { createProjectAction } from './ProjectActions';
-export { createBugAction } from './BugActions';
+export { createBugAction, updateBugAction } from './BugActions';

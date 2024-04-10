@@ -1,19 +1,30 @@
 'use client';
 import { Modal, ModalDropdown, ModalInput, ModalTextarea } from 'components';
-import { fillFormData, resetFormData } from 'helpers';
+import { fillFormData } from 'helpers';
 import { usePostDashboard } from 'hooks';
 import { useForm } from 'react-hook-form';
 import { UpdateBugModalType } from './UpdateBugModalType';
 import { bugValidation } from 'config';
+import { dashboardException } from 'exceptions';
+import { updateBugAction } from 'actions';
 
 export const UpdateBugModal: React.FC<UpdateBugModalType> = (props) => {
   const methods = useForm({ mode: 'all' });
   const { searchParams, params, router, pathname } = usePostDashboard();
   const handleSubmit = (data: any) => {
     data['project_id'] = params.id;
+    data['id'] = params.bug_id;
     const formData = fillFormData(data);
-    resetFormData(data, methods);
-    console.log(formData);
+    dashboardException(
+      'name',
+      'bug',
+      methods,
+      updateBugAction,
+      formData,
+      router,
+      params.id,
+      params.bug_id,
+    );
   };
   return (
     <>

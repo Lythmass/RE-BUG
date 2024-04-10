@@ -3,12 +3,13 @@ import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.share
 
 export const dashboardException = async (
   errorField: string,
-  scope: 'bugs' | 'projects',
+  scope: 'bugs' | 'projects' | 'bug',
   methods: any,
   action: (formData: FormData) => void,
   formData: FormData,
   router: AppRouterInstance,
   project_id: string | string[],
+  bug_id?: string | string[],
 ) => {
   try {
     const response: any = await action(formData);
@@ -20,6 +21,11 @@ export const dashboardException = async (
       if (scope == 'bugs') {
         revalidateData(`/bugs/get/${project_id}`);
         router.push(`/dashboard/${project_id}`);
+      }
+      if (scope == 'bug') {
+        revalidateData(`/bugs/get/${project_id}`);
+        router.push(`/dashboard/${project_id}/${bug_id}`);
+        revalidateData(`/bugs/get/${project_id}/${bug_id}`);
       }
     }
   } catch (error: any) {

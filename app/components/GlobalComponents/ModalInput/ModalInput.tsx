@@ -13,7 +13,7 @@ export const ModalInput: React.FC<ModalInputType> = (props) => {
         className={`${raleway.className} focus:outline-none border border-dark bg-transparent font-medium px-3 py-2 rounded-full w-full text-lg`}
       />
       <p
-        className={`text-accent-1 font-medium text-sm leading-4 lg:h-2 ${raleway.className} px-7`}
+        className={`text-accent-1 font-medium text-sm leading-4 lg:h-4 ${raleway.className} px-7`}
       >
         {props.errors[props.name]?.message}
       </p>

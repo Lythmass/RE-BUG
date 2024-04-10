@@ -14,7 +14,7 @@ export const bugValidation = {
     maxLength: { value: 1000, message: 'Description must be less than 1000' },
   },
   solution: {
-    required: 'Solution is required!',
+    // required: 'Solution is required!',
     minLength: { value: 100, message: 'Solution must be more than 100' },
     maxLength: { value: 1000, message: 'Solution must be less than 1000' },
   },
