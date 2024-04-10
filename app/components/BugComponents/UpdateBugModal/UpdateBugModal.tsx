@@ -1,6 +1,6 @@
 'use client';
 import { Modal, ModalDropdown, ModalInput, ModalTextarea } from 'components';
-import { fillFormData, handleClose, resetFormData } from 'helpers';
+import { fillFormData, resetFormData } from 'helpers';
 import { usePostDashboard } from 'hooks';
 import { useForm } from 'react-hook-form';
 import { UpdateBugModalType } from './UpdateBugModalType';
@@ -15,12 +15,11 @@ export const UpdateBugModal: React.FC<UpdateBugModalType> = (props) => {
     resetFormData(data, methods);
     console.log(formData);
   };
-  console.log(props.severities);
   return (
     <>
       {searchParams.get('modal') == 'update_bug' && (
         <Modal
-          handleClose={() => handleClose(pathname, router, methods)}
+          handleClose={() => router.push(pathname)}
           handleSubmit={handleSubmit}
           methods={methods}
           title={`Update '${props.bug.name}' Bug`}

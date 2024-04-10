@@ -9,8 +9,8 @@ export const UpdateBug: React.FC<{ bug: BugType }> = async (props) => {
       {severities && statuses && (
         <UpdateBugModal
           bug={props.bug}
-          severities={severities.data}
-          statuses={statuses.data}
+          severities={severities?.data}
+          statuses={statuses?.data}
         />
       )}
     </>
