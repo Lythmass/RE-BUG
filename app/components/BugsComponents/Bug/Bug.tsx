@@ -16,10 +16,12 @@ export const Bug: React.FC<BugType> = (props) => {
       <BugStatusAndSeverity
         title={props.status.status}
         color={props.status.color}
+        description={props.status.description}
       />
       <BugStatusAndSeverity
         title={props.severity.severity}
         color={props.severity.color}
+        description={props.severity.description}
       />
       <h1 style={{ backgroundColor: props.color }}>
         {props.reporter.username}

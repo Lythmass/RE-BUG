@@ -8,8 +8,14 @@ export type BugType = {
     severity_id: number;
     severity: string;
     color: string;
+    description: string;
   };
-  status: { status_id: number; status: string; color: string };
+  status: {
+    status_id: number;
+    status: string;
+    color: string;
+    description: string;
+  };
   color: string;
   reporter: {
     first_name: string;

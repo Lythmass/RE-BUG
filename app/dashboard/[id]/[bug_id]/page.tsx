@@ -37,6 +37,7 @@ export default async function BugId({
           <BugStatusAndSeverity
             title={bug.data.status.status}
             color={bug.data.status.color}
+            description={bug.data.status.description}
           />
           <h1
             style={{ color: bug.data.severity.color }}
@@ -47,6 +48,7 @@ export default async function BugId({
           <BugStatusAndSeverity
             title={bug.data.severity.severity}
             color={bug.data.severity.color}
+            description={bug.data.severity.description}
           />
           <div className='flex gap-3 ml-3'>
             <DateContainer date={`Found: ${created_at}`} />
