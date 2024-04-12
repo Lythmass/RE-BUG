@@ -68,6 +68,20 @@ export default async function BugId({
           </Link>
         </div>
         <div className='flex flex-col gap-3 w-full'>
+          <div className='w-full gap-4 flex'>
+            <h1 className='font-bold'>
+              Reported by:{' '}
+              <span className='text-accent-1'>
+                {bug.data.reporter.username}
+              </span>
+            </h1>
+            <h1 className='font-bold'>
+              Closed by:{' '}
+              <span className='text-accent-2'>
+                {bug.data.resolver.username}
+              </span>
+            </h1>
+          </div>
           <DescriptionsContainer
             title='Description'
             description={bug.data.description}
