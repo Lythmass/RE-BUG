@@ -18,7 +18,7 @@ export default async function ProjectId({
             return <BugTitles key={index} title={bug.title} />;
           })}
         </div>
-        <div className='w-full mb-6 flex flex-col h-full gap-3 items-start justify-start overflow-y-auto'>
+        <div className='w-full pb-5 mb-6 flex flex-col h-full gap-3 items-start justify-start overflow-y-auto'>
           {bugs?.data.map((bug: BugType, index: number) => {
             return (
               <Bug

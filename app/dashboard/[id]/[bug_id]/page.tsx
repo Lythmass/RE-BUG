@@ -3,6 +3,7 @@ import {
   BugStatusAndSeverity,
   ContainerLayout,
   DateContainer,
+  DeleteBug,
   DescriptionsContainer,
   HeaderLayout,
   UpdateBug,
@@ -24,6 +25,7 @@ export default async function BugId({
   return (
     <>
       <UpdateBug bug={bug.data} />
+      <DeleteBug />
       <ContainerLayout width='75%'>
         <HeaderLayout
           title={`Bug: ${bug.data.name}`}
@@ -64,7 +66,7 @@ export default async function BugId({
           </Link>
           <Link
             className={`text-accent-1 font-bold bg-dark px-3 py-1 `}
-            href='?modal=update_bug'
+            href='?modal=delete_bug'
           >
             -Delete
           </Link>

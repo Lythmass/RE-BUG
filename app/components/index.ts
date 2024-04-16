@@ -34,6 +34,7 @@ export {
   DescriptionsContainer,
   UpdateBug,
   UpdateBugModal,
+  DeleteBug,
 } from './BugComponents';
 
 export { ModalInput, Modal } from './GlobalComponents';
