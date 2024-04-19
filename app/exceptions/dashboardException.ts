@@ -21,6 +21,7 @@ export const dashboardException = async (
       if (scope == 'bugs') {
         revalidateData(`/bugs/get/${project_id}`);
         router.push(`/dashboard/${project_id}`);
+        revalidateData(`/projects/get/${project_id}`);
       }
       if (scope == 'bug') {
         revalidateData(`/bugs/get/${project_id}`);

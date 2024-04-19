@@ -14,6 +14,7 @@ export const DeleteBug = () => {
     try {
       await deleteBugAction(params.bug_id);
       revalidateData(`/bugs/get/${params.id}`);
+      revalidateData(`/projects/get/${params.id}`);
       router.push(`/dashboard/${params.id}`);
     } catch (error: any) {
       setError(error.message);

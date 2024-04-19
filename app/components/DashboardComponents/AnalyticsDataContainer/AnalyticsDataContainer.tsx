@@ -12,7 +12,7 @@ export const AnalyticsDataContainer = () => {
     const fetchProject = async () => {
       const response = await FetchAuthDataActions(`/projects/get/${params.id}`);
       if (response.status == 404) {
-        alert(response.data.name);
+        alert(response.data.data.name);
       }
       setProject(response.data);
       return response;
