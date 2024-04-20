@@ -27,6 +27,7 @@ export const dashboardException = async (
         revalidateData(`/bugs/get/${project_id}`);
         router.push(`/dashboard/${project_id}/${bug_id}`);
         revalidateData(`/bugs/get/${project_id}/${bug_id}`);
+        revalidateData(`/projects/get/${project_id}`);
       }
     }
   } catch (error: any) {

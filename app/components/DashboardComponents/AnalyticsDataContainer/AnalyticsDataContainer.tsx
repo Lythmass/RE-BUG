@@ -1,12 +1,15 @@
 'use client';
 import { FetchAuthDataActions } from 'actions';
 import { ContainerLayout } from 'components';
+import { pieChartOptions } from 'config';
+import { fillPieChartData } from 'helpers';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { ProjectType } from 'types';
+import Chart from 'react-google-charts';
+import { ProjectAnalyticsType } from 'types';
 
 export const AnalyticsDataContainer = () => {
-  const [project, setProject] = useState<ProjectType>();
+  const [project, setProject] = useState<ProjectAnalyticsType>();
   const params = useParams();
   useEffect(() => {
     const fetchProject = async () => {
@@ -21,20 +24,42 @@ export const AnalyticsDataContainer = () => {
   }, [params.id]);
   return (
     <ContainerLayout width='75%'>
-      <h1>Project: {project?.project}</h1>
-      <h1>Total Bugs: {project?.bugs?.length}</h1>
-      <h1>
-        Oldest Bug:{' '}
-        {project?.bugs &&
-          new Date(project?.bugs[0]?.created_at).toLocaleDateString()}
-      </h1>
-      <h1>
-        Newest Bug:{' '}
-        {project?.bugs &&
-          new Date(
-            project?.bugs[project?.bugs?.length - 1]?.created_at,
-          ).toLocaleDateString()}
-      </h1>
+      <div className='flex'>
+        <div className='w-full'>
+          <h1>
+            Project: <span className='font-bold'>{project?.project}</span>
+          </h1>
+          <h1>
+            Total Bugs:{' '}
+            <span className='font-bold'>{project?.bugs_length}</span>
+          </h1>
+          <h1>
+            Oldest Bug:{' '}
+            <span className='font-bold'>
+              {new Date(project?.oldest_bug).toLocaleDateString()}
+            </span>
+          </h1>
+          <h1>
+            Newest Bug:{' '}
+            <span className='font-bold'>
+              {new Date(project?.newest_bug).toLocaleDateString()}
+            </span>
+          </h1>
+        </div>
+
+        {project?.statuses && project?.severities && (
+          <div className='w-full h-1/2 flex justify-between'>
+            <Chart
+              {...pieChartOptions}
+              data={fillPieChartData(project?.statuses)}
+            />
+            <Chart
+              data={fillPieChartData(project?.severities)}
+              {...pieChartOptions}
+            />
+          </div>
+        )}
+      </div>
     </ContainerLayout>
   );
 };
