@@ -50,12 +50,12 @@ export const AnalyticsDataContainer = () => {
         {project?.statuses && project?.severities && (
           <div className='w-full h-1/2 flex justify-between'>
             <Chart
-              {...pieChartOptions}
+              {...pieChartOptions[0]}
               data={fillPieChartData(project?.statuses)}
             />
             <Chart
               data={fillPieChartData(project?.severities)}
-              {...pieChartOptions}
+              {...pieChartOptions[1]}
             />
           </div>
         )}
