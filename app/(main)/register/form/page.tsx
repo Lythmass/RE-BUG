@@ -4,6 +4,7 @@ import { AuthChoice, AuthRegisterForm, AuthTitle } from 'components';
 import { authException } from 'exceptions';
 import { fillFormData } from 'helpers';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthTypes } from 'types';
 
@@ -18,15 +19,21 @@ export default function RegisterAdmin() {
     authException({ router, methods, formData, action: registerAction });
   };
   return (
-    <div className='w-full h-full flex flex-col items-center p-10 gap-10'>
-      <AuthTitle text={`register as ${searchParams.get('role')} on`} />
-      <form
-        onSubmit={methods.handleSubmit(handleSubmit)}
-        className='w-full flex flex-col gap-5'
-      >
-        <AuthRegisterForm methods={methods} />
-      </form>
-      <AuthChoice before='Already have and account?' middle='Log in' href='/' />
-    </div>
+    <Suspense>
+      <div className='w-full h-full flex flex-col items-center p-10 gap-10'>
+        <AuthTitle text={`register as ${searchParams.get('role')} on`} />
+        <form
+          onSubmit={methods.handleSubmit(handleSubmit)}
+          className='w-full flex flex-col gap-5'
+        >
+          <AuthRegisterForm methods={methods} />
+        </form>
+        <AuthChoice
+          before='Already have and account?'
+          middle='Log in'
+          href='/'
+        />
+      </div>
+    </Suspense>
   );
 }
