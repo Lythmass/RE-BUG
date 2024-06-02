@@ -7,7 +7,7 @@ async function getRolesData() {
   });
 
   if (!response.ok) {
-    throw new Error('Failed to fetch data');
+    console.log('Failed to fetch data');
   }
 
   return response.json();
@@ -15,7 +15,7 @@ async function getRolesData() {
 
 export default async function Register() {
   const rolesData = await getRolesData();
-  const renderRoleButtons = rolesData.data?.map(
+  const renderRoleButtons = rolesData?.data?.map(
     (role: { role_id: number; role: string }) => {
       return (
         <Link

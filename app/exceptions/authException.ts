@@ -12,7 +12,7 @@ export const authException = async (props: AuthExceptionType) => {
     }
   } catch (error: any) {
     props.methods.setError('password', {
-      message: error?.response.data.message,
+      message: error?.response?.data.message,
     });
   }
 };
